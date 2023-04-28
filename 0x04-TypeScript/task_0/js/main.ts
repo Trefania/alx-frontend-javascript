@@ -1,8 +1,8 @@
 interface Student{
-	firstName: string,
-	lastName: string,
-	age: number,
-	location:string
+  firstName: string;
+  lastName: string;
+  age: number;
+  location: string;
 }
 const student1: Student = {
   firstName: "nyasha",
@@ -18,19 +18,29 @@ const student2: Student = {
   location: "wellington"
 };
 
+// Create an array of students
 const studentsList: Student[] = [student1, student2];
 
-const table = document.createElement("table");
+// Get a reference to the table element in the DOM
+const table = document.getElementById("students-table");
 
-studentsList.forEach(student => {
+// Loop through the studentsList array and add a new row for each student
+studentsList.forEach((student) => {
+  // Create a new row element
   const row = document.createElement("tr");
-  const nameCell = document.createElement("td");
+
+  // Create a cell for the student's first name
+  const firstNameCell = document.createElement("td");
+  firstNameCell.textContent = student.firstName;
+
+  // Create a cell for the student's location
   const locationCell = document.createElement("td");
-  nameCell.textContent = student.firstName;
   locationCell.textContent = student.location;
-  row.appendChild(nameCell);
+
+  // Append the cells to the row
+  row.appendChild(firstNameCell);
   row.appendChild(locationCell);
+
+  // Append the row to the table
   table.appendChild(row);
 });
-
-document.body.appendChild(table);
